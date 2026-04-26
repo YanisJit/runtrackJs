@@ -1,0 +1,44 @@
+function jourTravaille(date) {
+    const annee = date.getFullYear();
+    const mois = date.getMonth(); // Attention : Janvier = 0, Février = 1...
+    const jour = date.getDate();
+    const jourSemaine = date.getDay(); // 0 = Dimanche, 6 = Samedi
+
+    const moisNoms = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
+    // Liste des jours fériés en France pour 2024 (Mois 0-indexés)
+    const joursFeries2024 = [
+        new Date(2024, 0, 1),   // Jour de l'an
+        new Date(2024, 3, 1),   // Lundi de Pâques
+        new Date(2024, 4, 1),   // Fête du Travail
+        new Date(2024, 4, 8),   // Victoire 1945
+        new Date(2024, 4, 9),   // Ascension
+        new Date(2024, 4, 20),  // Lundi de Pentecôte
+        new Date(2024, 6, 14),  // Fête Nationale
+        new Date(2024, 7, 15),  // Assomption
+        new Date(2024, 10, 1),  // Toussaint
+        new Date(2024, 10, 11), // Armistice
+        new Date(2024, 11, 25)  // Noël
+    ];
+
+    let estFerie = false;
+    for (let i = 0; i < joursFeries2024.length; i++) {
+        if (jour === joursFeries2024[i].getDate() && mois === joursFeries2024[i].getMonth()) {
+            estFerie = true;
+            break;
+        }
+    }
+
+    const dateFormatee = `${jour} ${moisNoms[mois]} ${annee}`;
+
+    if (estFerie) {
+        console.log(`Le ${dateFormatee} est un jour férié`);
+    } else if (jourSemaine === 0 || jourSemaine === 6) {
+        console.log(`Non, le ${dateFormatee} est un week-end`);
+    } else {
+        console.log(`Oui, le ${dateFormatee} est un jour travaillé`);
+    }
+}
+
+// Test
+jourTravaille(new Date(2024, 4, 1)); // Férié (1er Mai)
