@@ -1,0 +1,26 @@
+/* Style par défaut de la page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* On ajoute une petite transition pour que le changement de couleur soit fluide */
+    transition: all 0.5s ease-in-out; 
+}
+
+/* Le style qui sera activé par le Konami Code (Couleurs La Plateforme_) */
+.plateforme-style {
+    background-color: #0b1120; /* Fond bleu nuit/noir */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+}
+
+/* Style pour le texte qui va apparaître */
+.titre {
+    font-size: 4rem;
+    color: #00c4ff; /* Bleu cyan */
+    margin: 0;
+}
