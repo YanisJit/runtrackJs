@@ -1,0 +1,21 @@
+function tri(numbers, order) {
+    let n = numbers.length;
+    // Implémentation d'un tri à bulles (Bubble sort)
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            let condition = (order === "asc") ? (numbers[j] > numbers[j + 1]) : (numbers[j] < numbers[j + 1]);
+            
+            if (condition) {
+                // Échanger les éléments
+                let temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+            }
+        }
+    }
+    return numbers;
+}
+
+// Tests
+console.log(tri([15, 3, 8, 1, 9], "asc"));  // [1, 3, 8, 9, 15]
+console.log(tri([15, 3, 8, 1, 9], "desc")); // [15, 9, 8, 3, 1]
