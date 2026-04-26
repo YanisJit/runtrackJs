@@ -1,0 +1,18 @@
+function compterVoyelles(phrase) {
+    let count = 0;
+    // On prend en compte les majuscules et les minuscules
+    const voyelles = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
+    
+    // Utilisation de la boucle for comme demandé
+    for (let i = 0; i < phrase.length; i++) {
+        if (voyelles.includes(phrase[i])) {
+            count++;
+        }
+    }
+    
+    console.log(`La phrase contient ${count} voyelles`);
+    return count;
+}
+
+// Test
+compterVoyelles("Bonjour le monde, je code en Javascript!");
